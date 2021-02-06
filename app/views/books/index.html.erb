@@ -1,0 +1,24 @@
+<h1>我是index頁</h1>
+
+<%= link_to "新增書本", new_book_path %>
+
+<table>
+<thead>
+  <tr>
+  <td>書名</td>
+  <td>價格</td>
+  </tr>
+</thead>
+<tbody>
+<% @books.each do |b|%>
+<tr>
+  <td><%=b.title%></td>
+  <td><%=b.price%></td>
+    <td>
+        <%= link_to "編輯", edit_book_path(b) %>
+        <%= link_to "刪除", book_path(b), method: "delete", data: { confirm: "確認刪除" } %>
+    </td>
+</tr>
+<% end %>
+</tbody>
+</table>
